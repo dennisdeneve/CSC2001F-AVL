@@ -10,7 +10,7 @@ This tests the efficiency of the AVL data structure implementation against tradi
 
 # Run AccessAVLApp
 
-## make runbst
+## make runavl
 
 # Clean files in bin
 
