@@ -1,0 +1,4 @@
+Results for subset5000
+1
+6.3908
+14

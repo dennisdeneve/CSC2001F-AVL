@@ -1,0 +1,28 @@
+// Hussein's Binary Tree
+// 26 March 2017
+// Hussein Suleman
+ 
+ /**
+ * Prof Suleman's BTQueueNode code, used for purposes of assignment2
+ *
+ * @author Prof Suleman
+ * @version 1.0
+ * @since 26 March 2017
+ */
+public class BTQueueNode<dataType>
+{
+   BinaryTreeNode<dataType> node;
+   BTQueueNode<dataType> next;
+   
+   /**
+   *
+   *
+   *
+   */
+   
+   public BTQueueNode ( BinaryTreeNode<dataType> n, BTQueueNode<dataType> nxt )
+   {
+      node = n;
+      next = nxt;
+   }
+}

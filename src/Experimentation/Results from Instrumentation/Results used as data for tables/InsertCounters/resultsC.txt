@@ -1,0 +1,4 @@
+Results for insert oklist1500
+0
+9.296666666666667
+12

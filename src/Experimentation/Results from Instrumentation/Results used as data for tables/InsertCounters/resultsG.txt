@@ -1,0 +1,4 @@
+Results for insert oklist3500
+0
+10.581428571428571
+14

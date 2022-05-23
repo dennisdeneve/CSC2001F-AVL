@@ -1,0 +1,4 @@
+Results for subset1000
+1
+6.459
+13

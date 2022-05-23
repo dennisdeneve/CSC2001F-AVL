@@ -1,0 +1,32 @@
+import os
+
+best = 1
+worst =1
+average= 1
+
+
+with open ('OpCFind/oklist5000.txt','r') as newSub:
+    count =0
+    
+    for line in newSub:
+        count+=1
+        line = line.rstrip('\n')
+        
+        line = int(line)
+        
+        if line < best:
+            best = line
+            
+        if line > worst:
+            worst = line
+            
+        average +=line
+    average /=count
+    
+results = "Results for subset5000"        
+os.system('echo ' + results + ' >> results10.txt')
+os.system('echo ' + str(best) + ' >> results10.txt')
+os.system('echo ' + str(average) + ' >> results10.txt')
+os.system('echo ' + str(worst) + ' >> results10.txt')
+
+print ("Done with script!!!")

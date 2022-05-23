@@ -1,0 +1,4 @@
+Results for subset2000
+1
+6.381
+13

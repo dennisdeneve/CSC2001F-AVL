@@ -1,0 +1,95 @@
+# python script to automate experimentation process for Assignment2
+# HMMDEN001
+# april 2021
+
+import os
+
+print("Creating Subsets...")
+subsets = ['oklist500.txt', 'oklist1000.txt', 'oklist1500.txt', 'oklist2000.txt', 'oklist2500.txt', 'oklist3000.txt', 
+        'oklist3500.txt' , 'oklist4000.txt', 'oklist4500.txt', 'oklist5000.txt' ]
+
+#Creation of subsets
+for i in subsets:
+    if i == 'oklist500.txt':
+        os.system("shuf -n 500 ../data/oklist.txt >" + i)
+        
+    elif i == 'oklist1000.txt':
+        os.system("shuf -n 1000 ../data/oklist.txt >" + i)
+        
+    elif i == 'oklist1500.txt':
+        os.system("shuf -n 1500 ../data/oklist.txt >" + i)
+        
+    elif i == 'oklist2000.txt':
+        os.system("shuf -n 2000 ../data/oklist.txt >" + i)
+
+    elif i == 'oklist2500.txt':
+        os.system("shuf -n 2500 ../data/oklist.txt >" + i)
+
+    elif i == 'oklist3000.txt':
+        os.system("shuf -n 3000 ../data/oklist.txt >" + i)
+
+    elif i == 'oklist3500.txt':
+        os.system("shuf -n 3500 ../data/oklist.txt >" + i)
+
+    elif i == 'oklist4000.txt':
+        os.system("shuf -n 4000 ../data/oklist.txt >" + i)
+
+    elif i == 'oklist4500.txt':
+        os.system("shuf -n 4500 ../data/oklist.txt >" + i)
+    
+    elif i == 'oklist5000.txt':
+        os.system("shuf -n 5000 ../data/oklist.txt >" + i)
+
+print ("Subsets created successfully")
+
+#function to use subsets
+def fun(Subset):
+
+    print("Running ...")
+    with open (Subset, 'r') as textfile:
+    
+            #student in textfile:
+            #studentID = student.rstrip('\n').split(' ')
+            
+            #the id is the first element
+            #studentID = studentID[0]
+    
+            os.system('java -cp ../bin AccessAVLApp ' +">> Insert/"+ Subset)
+    print("Done with passing through IDs")
+    
+array = ['oklist500.txt', 'oklist1000.txt','oklist1500.txt', 'oklist2000.txt','oklist2500.txt', 'oklist3000.txt','oklist3500.txt',
+     'oklist4000.txt','oklist4500.txt', 'oklist5000.txt']
+
+#for file in array:
+#    fun(file)
+fun('oklist5000.txt')
+    
+best = 0
+average = 1
+worst = 1
+
+with open ('Insert/oklist5000.txt', 'r') as newSub:
+    count = 0
+
+    for line in newSub:
+        count+=1
+        line =line.rstrip('\n')  
+        
+        line = int(line)
+            
+        if line < best:
+            best = line
+            
+        if line > worst:
+            worst = line
+                
+        average+=line       
+    average/=count
+
+results = "Results for insert oklist5000"        
+os.system('echo ' + results + ' >> resultsJ.txt')
+os.system('echo ' + str(best) + ' >> resultsJ.txt')
+os.system('echo ' + str(average) + ' >> resultsJ.txt')
+os.system('echo ' + str(worst) + ' >> resultsJ.txt')
+
+print ("Done with script!!!")

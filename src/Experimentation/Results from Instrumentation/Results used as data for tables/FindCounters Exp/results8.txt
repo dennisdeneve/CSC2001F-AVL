@@ -1,0 +1,4 @@
+Results for subset4000
+1
+6.409
+14

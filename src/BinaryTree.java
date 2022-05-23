@@ -1,0 +1,183 @@
+// Hussein's Binary Tree
+// 26 March 2017
+// Hussein Suleman
+
+/**
+* Prof Suleman's BinaryTree Code, used for purposes of assignment2
+*
+* @author Prof Suleman
+* @version 1.0
+* @since 26 March 2017
+*/
+
+public class BinaryTree<dataType>
+{
+   BinaryTreeNode<dataType> root;
+   
+   public BinaryTree ()
+   {
+      root = null;
+   }
+   /** 
+   * Helper method to return the height of the binary tree, if height == root
+   *
+   * @param none
+   * @return an invocation to the getHeight method, passing in the root as a param
+   *
+   */
+   public int getHeight ()
+   {
+      return getHeight (root);
+   }
+   
+   /**
+   * Method to get the height of binary tree
+   *
+   * @param a node of a certain dataType, comming from BinaryTreeNode class
+   * @return int value of height of the binary tree, int value
+   */   
+   
+   public int getHeight ( BinaryTreeNode<dataType> node )
+   {
+      if (node == null)
+         return -1;
+      else
+         return 1 + Math.max (getHeight (node.getLeft ()), getHeight (node.getRight ()));
+   }
+   /**
+   * Helper method to get size of binary tree
+   *
+   * @param none
+   * @return an invocation to the getSize method, passing in the root as a param
+   */
+   
+   public int getSize ()
+   {
+      return getSize (root);
+   }   
+   
+   /**
+   * Method that gets the size of the binary tree
+   *
+   * @param a node of a certain dataType, from the BinaryTreeNode class
+   * @return int value that is the height of the tree
+   */
+   
+   public int getSize ( BinaryTreeNode<dataType> node )
+   {
+      if (node == null)
+         return 0;
+      else
+         return 1 + getSize (node.getLeft ()) + getSize (node.getRight ());
+   }
+   
+   /**
+   * Method to simply visit a node
+   *
+   * @param a node of a certain dataType, from BinaryTreeNode class
+   * @return that node's data
+   */
+   public void visit ( BinaryTreeNode<dataType> node )
+   {
+      System.out.println (node.data);
+   }
+   /**
+   * Helper method of preOrder  
+   *
+   * @param none
+   * @return an invoaction to the preOrder method, passing through a root
+   */
+   
+   public void preOrder ()
+   {
+      preOrder (root);
+   }
+   /**
+   * Method to change the order of the nodes in the tree to be of the preOrder structure
+   *
+   * @param a node of a certain dataType, from the BinaryTreeNode class
+   * @return a set of nodes that are structured in a preOrder way
+   */
+   public void preOrder ( BinaryTreeNode<dataType> node )
+   {
+      if (node != null)
+      {
+         visit (node);
+         preOrder (node.getLeft ());
+         preOrder (node.getRight ());
+      }   
+   }
+   /**
+   * Helper method of postOrder
+   *
+   * @param none
+   * @return an invocation of the postOrder method, passing in a root as a parameter
+   */
+   public void postOrder ()
+   {
+      postOrder (root);
+   }
+   /**
+   * Method to change the order of the nodes in the tree, to be of a postOrder structure
+   *
+   * @param a node of a certain dataType, from BinaryTreeNode class
+   * @return none
+   *
+   */
+   public void postOrder ( BinaryTreeNode<dataType> node )
+   {
+      if (node != null)
+      {
+         postOrder (node.getLeft ());
+         postOrder (node.getRight ());
+         visit (node);
+      }   
+   }
+   /**
+   * Helper method of inOrder
+   *
+   * @param none
+   * @return an invoaction to the inOrder method
+   */
+   public void inOrder ()
+   {
+      inOrder (root);
+   }
+   /**
+   * Method to arrange all nodes in the tree, into an inOrder structure 
+   *
+   * @param a node of a certain dataType, from BinaryTreeNode
+   * @return none
+   */
+   public void inOrder ( BinaryTreeNode<dataType> node )
+   {
+      if (node != null)
+      {
+         inOrder (node.getLeft ());
+         visit (node);
+         inOrder (node.getRight ());
+      }   
+   }
+   /**
+   * Method to arrange all nodes in a tree, into a levelOrder structure
+   *
+   * @param none
+   * @return none
+   */
+   public void levelOrder ()
+   {
+      if (root == null)
+         return;
+      BTQueue<dataType> q = new BTQueue<dataType> ();
+      q.enQueue (root);
+      BinaryTreeNode<dataType> node;
+      while ((node = q.getNext ()) != null)
+      {
+         visit (node);
+         if (node.getLeft () != null)
+            q.enQueue (node.getLeft ());
+         if (node.getRight () != null)
+            q.enQueue (node.getRight ());
+      }
+   }
+}

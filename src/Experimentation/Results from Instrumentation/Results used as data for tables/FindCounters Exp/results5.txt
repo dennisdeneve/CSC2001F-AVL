@@ -1,0 +1,4 @@
+Results for subset2500
+1
+6.3868
+12

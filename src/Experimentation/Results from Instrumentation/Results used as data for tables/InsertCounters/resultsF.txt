@@ -1,0 +1,4 @@
+Results for insert oklist3000
+0
+10.317666666666666
+13

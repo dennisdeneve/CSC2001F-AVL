@@ -1,0 +1,4 @@
+Results for insert oklist1000
+0
+8.683
+12
